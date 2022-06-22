@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SURE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="col-16 m-auto pt-2 pb-2 text-center">
+        <div class="col-10 m-auto pt-2 pb-2 text-center">
+            <h1>SURE</h1>
+            <h3>Escala de Avaliação da Recuperação do uso de Substâncias Psicoativas</h3>
+
+                            AS PERGUNTAS A SEGUIR SERVEM PARA VOCÊ AVALIAR SUA RECUPERAÇÃO DA
+                DEPENDÊNCIA DE DROGAS (INCLUINDO USO DE REMÉDIOS QUE NÃO SEGUEM
+                PRESCRIÇÃO MÉDICA/ ou / INCLUINDO USO DE REMÉDIOS NÃO DIRECIONADOS
+                MEDICAMENTE) E/OU ÁLCOOL ELAS FORAM ELABORADAS COM AJUDA DE USUÁRIOS DO SERVIÇO EM TRATAMENTO
+                PARA MENSURAR O QUE É IMPORTANTE PARA PESSOAS EM FASE DE RECUPERAÇÃO
+
+        </div>
+
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/" class="btn btn-info">Ver resultados</a>
+    </div>
+
+    <div class="col-10 m-auto pt-4 pb-2 text-left">
+<hr>
+    <center><strong>SEÇÃO A</strong></center><br>
+                            Pensando nos últimos 7 dias até hoje, avalie o que aconteceu com
+                            você de acordo com cada uma das seguintes alternativas
+                            CONSUMO DE BEBIDA E DROGAS (Parte 1) - Pensando nos últimos
+                            7 dias até hoje<p>
+                            
+    </div>
+          <div class="col-10 m-auto pt-4 pb-2 text-left">
+                <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+
+                    {% csrf_token %}
+                    <div class="form-group mt-16">1. Eu Bebi Demais:    {{form.q01}}</div>
+                    <div class="form-group mt-16">2. Eu usei Drogas:    {{form.q02}}</div>
+                    <div class="form-group mt-16">3. Eu Senti Fissura:  {{form.q03}}</div>
+                    <div class="form-group mt-16">4. Eu enfrentei problemas sem precisar usar drogas ou beber                                     {{form.q04}}</div>
+                    <div class="form-group mt-16">5. Eu lidei com dores ou mal-estares sem precisar usar drogas ou beber                          {{form.q05}}</div>
+                    <div class="form-group mt-16">6. Eu preenchi meu tempo livre com diversões e interesses que não envolveram drogas ou bebidas  {{form.q06}}</div>
+                    <hr>
+                    <center><strong>Seção B</strong></center><p>
+                        Por favor, continue lendo todas as perguntas e responda atentamente às opções
+                            AUTOCUIDADO – Ainda pensando nos últimos 7 dias até hoje<p>
+
+                    <div class="form-group mt-16">7. Eu tenho cuidado da minha saúde mental                                                       {{form.q07}}</div>
+                    <div class="form-group mt-16">8. Eu tenho cuidado da minha saúde física                                                       {{form.q08}}</div>
+                    <div class="form-group mt-16">9. Eu mantive uma boa alimentação                                                               {{form.q09}}</div>
+                    <div class="form-group mt-16">10. Eu dormi bem                                                                                {{form.q10}}</div>
+                    <div class="form-group mt-16">11. Eu mantive uma boa rotina diária                                                            {{form.q11}}</div>
+                    <hr> RELACIONAMENTOS – Ainda pensando nos últimos 7 dias até hoje<p>
+
+                    <div class="form-group mt-16">12. Eu venho me relacionando bem com as pessoas                                                 {{form.q12}}</div>
+                    <div class="form-group mt-16">13. Eu me senti apoiado(a) pelas pessoas que me cercam                                          {{form.q13}}</div>
+                    <div class="form-group mt-16">14. Eu tenho sido tratado(a) com respeito e consideração pelas pessoas que me cercam            {{form.q14}}</div>
+                    <div class="form-group mt-16">15. Eu tratei as outras pessoas com respeito e consideração                                     {{form.q15}}</div>
+                    <hr> <center>RECURSOS MATERIAIS – Ainda pensando nos últimos 7 dias até hoje</center><p>
+
+                    <div class="form-group mt-16">16. Eu permaneci em uma moradia estável                                                         {{form.q16}}</div>
+                    <div class="form-group mt-16">17. Eu tive algum tipo de renda (benefícios, pensão, trabalho ou outras fontes legais)          {{form.q17}}</div>
+                    <div class="form-group mt-16">18. Eu cuidei/gerenciei bem o meu dinheiro                                                      {{form.q18}}</div>
+                    <hr><center>PERSPECTIVA DE VIDA – Ainda pensando nos últimos 7 dias até hoje</center><p>
+
+                    <div class="form-group mt-16">19. Eu me senti feliz com a minha qualidade de vida em geral                                    {{form.q19}}</div>
+                    <div class="form-group mt-16">20. Eu me senti confiant                   {{form.q20}}</div>
+                    <div class="form-group mt-16">21. Eu tive esperanças e metas realistas  {{form.q21}}</div>
+                    <hr><strong><center>SEÇÃO C</center></strong><p>
+                                Ainda pensando nos últimos 7 dias até hoje, indique a importância para você
+                                cada uma das sentenças abaixo<p>
+
+                    <div class="form-group mt-16">1. Reduzir ou abster do consumo de bebida ou drogas    {{form.q22}}</div>
+                    <div class="form-group mt-16">2. Cuidar de si mesmo(a) (fisicamente, mentalmente, com boa alimentação, dormir bem, seguir uma boa rotina)    {{form.q23}}</div>
+                    <div class="form-group mt-16">3. Ter bons relacionamentos com outras pessoas (conviver bem com as pessoas, sentir-se apoiado(a) pelas pessoas, ser tratado(a) com respeito, tratar os outros com respeito) {{form.q24}}</div>
+                    <div class="form-group mt-16">4. Ter recursos e bens (moradia estável, renda regular, gerenciar o dinheiro)    {{form.q25}}</div>
+                    <div class="form-group mt-16">5. Perspectiva de vida (ter uma boa qualidade de vida, sentir-se bem, ter esperanças e metas realistas) {{form.q26}}</div>
+
+                    <div class="form-group mt-16 text-center"></div>
+                    <center><input type="submit" class="btn btn-success" value="Salvar"></center>
+                </form>
+             
+            </div>
+    </div>
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+
+</body>
+</html>

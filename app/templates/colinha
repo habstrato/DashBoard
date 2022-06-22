@@ -1,0 +1,11 @@
+<!-- Mds é isso===>>>>  {{dbs.eubebidemais|add:dbs.euuseidrogas|add:dbs.eubebidemais}}  -->
+
+
+
+class Sure(models.Model):
+   
+   class euuseidrogas(models.IntegerChoices):
+       OI = 5
+       Tu = 2
+    
+   euuseidrogas = models.IntegerField(choices=euuseidrogas.choices)   

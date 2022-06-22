@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SURE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>SURE</h1>
+        <h3>Escala de Avaliação da Recuperação do uso de Substâncias Psicoativas</h3>
+
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/form" class="btn btn-success">Adicionar</a>
+        <a href="/dash2" class="btn btn-success">DashBoard</a>
+      
+    </div>
+
+    <div class="col-10 m-auto pt-4 pb-2 text-center">
+                        <table class="table">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Beber e usar drogas   </th>
+                              <th scope="col">Cuidados pessoais     </th>
+                              <th scope="col">Relacionamentos       </th> 
+                              <th scope="col">Recursos materiais    </th>
+                              <th scope="col">Perspectiva de vida   </th>
+                              <th scope="col">Total   </th>
+                              <th scope="col">Ações</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for dbs in db %}
+                          <tr>
+                              <th>{{dbs.id}}</th>
+                              <td>{{dbs.q01|add:dbs.q02|add:dbs.q03|add:dbs.q04|add:dbs.q05|add:dbs.q06}} </td>
+                              <td>{{dbs.q07|add:dbs.q08|add:dbs.q09|add:dbs.q10|add:dbs.q11}}             </td>
+                              <td>{{dbs.q12|add:dbs.q13|add:dbs.q14|add:dbs.q15}}                         </td>
+                              <td>{{dbs.q16|add:dbs.q17|add:dbs.q18}}</td>
+                              <td>{{dbs.q19|add:dbs.q20|add:dbs.q21}}</td>
+                              <td>{{dbs.q01|add:dbs.q02|add:dbs.q03|add:dbs.q04|add:dbs.q05|add:dbs.q06|add:dbs.q07|add:dbs.q08|add:dbs.q09|add:dbs.q10|add:dbs.q11|add:dbs.q12|add:dbs.q13|add:dbs.q14|add:dbs.q15|add:dbs.q16|add:dbs.q17|add:dbs.q18|add:dbs.q19|add:dbs.q20|add:dbs.q21}}</td>
+                              <td>
+                                  <!--<a href="/view/{{dbs.id}}/" class="btn btn-dark">Visualizar</a>-->
+                                  <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Editar</a>
+                                  <a href="/delete/{{dbs.id}}/" class="btn btn-danger btnDel">Deletar</a>
+
+                              </td>
+                            </tr>
+                          {% endfor %}
+
+                          </tbody>
+                        </table>
+        
+    </div>
+
+{% load static %}
+<script src="{% static 'javascript.js' %}"></script>
+
+
+</body>
+</html>

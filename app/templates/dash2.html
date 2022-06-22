@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>SURE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="static/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>SURE</h1>
+        <h3>Escala de Avaliação da Recuperação do uso de Substâncias Psicoativas</h3>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/form" class="btn btn-success">Adicionar</a>
+    </div>
+
+    <div id="linha-horizontal"><hr style="border-color:brown"></div>
+    
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>DashBoard</h1>
+    </div>
+
+    <div id="area-dash">
+
+        <div id="total">
+            <table>
+                <tr><td class="titulo_dash">Fomulários Preenchidos</td></tr>
+                <tr><td class="titulo_valor">{{ tam }}</td></tr>
+            </table>
+        </div>
+
+        <div class="pontuacao">
+            <table>
+                <tr><td class="titulo_dash">Pontuação Mínima</td></tr>
+                <tr><td class="titulo_valor">{{ valor_minimo }}</td></tr>
+            </table>
+        </div>
+
+        <div class="pontuacao">
+            <table>
+                <tr><td class="titulo_dash">Pontuação Média</td></tr>
+                <tr><td class="titulo_valor">{{ media_total }}</td></tr>
+            </table>
+        </div>
+
+        <div class="pontuacao">
+            <table>
+                <tr><td class="titulo_dash">Pontuação Máxima</td></tr>
+                <tr><td class="titulo_valor">{{ valor_maximo }}</td></tr>
+            </table>
+        </div>
+
+        <div id="piechart_3d" style="width: 880px; height: 500px;">
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+              google.charts.load("current", {packages:["corechart"]});
+              google.charts.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['Task', 'Hours per Day'],
+                  ['Beber e usar drogas',     {{ somat_beber }} ],
+                  ['Cuidados pessoais',      {{ somat_cuidados }} ],
+                  ['Relacionamentos',  {{ somat_relacionamentos }} ],
+                  ['Recursos materiais', {{ somat_recursos }} ],
+                  ['Perspectiva de vida',    {{ somat_perspectiva }}]
+                ]);
+        
+                var options = {
+                  title: 'Setores e Suas Pontuações',
+                  is3D: true,
+                };
+        
+                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                chart.draw(data, options);
+              }
+            </script>
+
+        
+        </div>
+        
+        <div id="rodape">Todos os Direitos Reservados</div>
+
+    </div>
+
+</body>
+</html>

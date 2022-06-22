@@ -1,0 +1,59 @@
+
+/* Limpar formatações padrões */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#area-dash {
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 10px;
+    width: 920px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+#total {
+    padding: 10px;
+    width: 210px;
+    background: orange;
+    float: left;
+    border: 2px solid black;
+}
+
+.pontuacao {
+    padding: 10px;
+    margin-left: 19px;
+    width: 210px;
+    background: orange;
+    float: inline-start;
+    border: 2px solid black;
+}
+
+#grafico1, #barchart_values, #piechart_3d {
+    width: 900px;
+    clear: both;
+}
+
+#rodape {
+    clear: both;
+    width: 900px;
+    padding: 10px;
+    background: orange;
+    border: 2px solid black;
+}
+
+.titulo_dash {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-size: 28px;
+}
+
+.titulo_valor {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-size: 60px;
+}
+
+table {
+    margin: auto;
+}

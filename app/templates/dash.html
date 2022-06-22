@@ -1,0 +1,17 @@
+{% load static %}
+
+<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in mydata %}
+    <tr>
+      <td>{{ x.id }}</td>
+        <td>{{ x.q01 }}</td>
+      <td>{{ x.q02 }}</td>
+    </tr>
+  {% endfor %}
+
+</table>
